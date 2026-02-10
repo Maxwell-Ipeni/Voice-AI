@@ -4,22 +4,23 @@ const f = createUploadthing();
 
 export const uploadRouter = {
   mediaUpload: f({
-    audio: { maxFileSize: "16MB", maxFileCount: 2 },
-    video: { maxFileSize: "256MB", maxFileCount: 1 },
+    audio: { maxFileSize: "16MB", minFileCount: 1 },
+    // video: { maxFileSize: "256MB", maxFileCount: 1 },
   })
-    .middleware(async ({ req }) => {
-      // no auth for now
-      return { user: "demo-user" };
-    })
-    .onUploadComplete(async ({ file, metadata }) => {
-      console.log("Uploaded:", file.url);
-      console.log("User:", metadata.user);
+    // .middleware(async ({ req }) => {
+    //   // no auth for now
+    //   return { user: "demo-user" };
+    // })
+    .onUploadComplete(async ({ file, }) => {
+      console.log("Uploaded:", file.ufsUrl);
+      // console.log("User:", metadata.user);
 
       return {
-        uploadedBy: metadata.user,
-        url: file.url,
+        // uploadedBy: metadata.user,
+        url: file.ufsUrl,
       };
     }),
+    
 } satisfies FileRouter;
 
 export type UploadRouter = typeof uploadRouter;
