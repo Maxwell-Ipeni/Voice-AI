@@ -54,22 +54,34 @@ export default function UploadPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center gap-4 p-8 bg-gray-50">
-      <div className="text-center">
+    <main className="min-h-screen  flex-col items-center justify-center gap-1 p-2 bg-gray-50">
+      <div className="text-center mb-6">
         <h1 className="text-3xl font-bold mb-2 text-gray-600">Upload Files</h1>
-        <p className="text-gray-400 mb-4">Upload audio or video files</p>
+        <p className="text-gray-400 mb-2">Upload audio or video files</p>
       </div>
 
-      <div className="w-full max-w-md bg-white p-3 rounded-lg shadow-sm border border-gray-200 mb-3">
+      {/* <div className="w-full max-w-md bg-white p-3 rounded-lg shadow-sm border border-gray-200 mb-3">
         <h2 className="font-semibold text-gray-700 mb-3">Maximum File Sizes</h2>
         <ul className="text-sm text-gray-600 space-y-1">
           <li>Audio: 16MB per file (max 2 files)</li>
           <li>Video: 256MB per file (max 1 file)</li>
         </ul>
-      </div>
+      </div> */}
 
       <UploadDropzone
         endpoint="mediaUpload"
+        appearance={{
+          container: {
+            padding: "16px",
+            minHeight: "auto",
+          },
+          label: {
+            marginBottom: "8px",
+          },
+          button: {
+            marginTop: "8px",
+          },
+        }}
         onClientUploadComplete={(res) => {
           if (res?.[0]) {
             setUploadedFile({
