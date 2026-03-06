@@ -4,8 +4,7 @@ const f = createUploadthing();
 
 export const uploadRouter = {
   mediaUpload: f({
-    audio: { maxFileSize: "16MB", minFileCount: 1 },
-    // video: { maxFileSize: "256MB", maxFileCount: 1 },
+    audio: { maxFileSize: "16MB", maxFileCount: 10 },
   })
     // .middleware(async ({ req }) => {
     //   // no auth for now
