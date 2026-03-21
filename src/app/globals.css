@@ -3,25 +3,46 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1e3a5f;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, #ffffff 0%, #e8f4fc 50%, #d4e9f7 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+.fade-blue-gradient {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #60a5fa 100%);
+}
+
+.fade-blue-text {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fade-blue-button {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+}
+
+.fade-blue-button:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
+}
+
+.blue-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(232,244,252,0.9) 100%);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.blue-card:hover {
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
 }

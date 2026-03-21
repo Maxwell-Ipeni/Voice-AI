@@ -25,3 +25,7 @@ export async function updateTranscriptionInConvex(fileId: Id<"files">, transcrip
 export async function getFilesFromConvex() {
   return await convex.query(api.files.getFiles, {});
 }
+
+export async function deleteFileFromConvex(fileId: Id<"files">) {
+  return await convex.mutation(api.files.deleteFile, { fileId });
+}

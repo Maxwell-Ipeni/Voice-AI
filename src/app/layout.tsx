@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Voice AI",
-  description: "Provibes a simple and intuitive interface for users to interact with the voice AI model that can transcribe files and provide insights.",
+  title: "Voice Transcription",
+  description: "Upload audio files and transcribe them",
 };
 
 export default function RootLayout({
@@ -33,7 +33,9 @@ export default function RootLayout({
         <NextSSRPlugin
           routerConfig={extractRouterConfig(uploadRouter)}
         />
-        {children}
+        <main className="min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );
