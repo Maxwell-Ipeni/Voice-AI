@@ -4,6 +4,8 @@ import "./globals.css";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { uploadRouter } from "./api/uploadthing/core";
+import { Providers } from "./providers";
+import { Header } from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +35,12 @@ export default function RootLayout({
         <NextSSRPlugin
           routerConfig={extractRouterConfig(uploadRouter)}
         />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <Providers>
+          <Header />
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );
